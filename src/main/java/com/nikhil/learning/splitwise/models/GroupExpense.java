@@ -2,6 +2,7 @@ package com.nikhil.learning.splitwise.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class GroupExpense extends BaseModel{
@@ -9,6 +10,6 @@ public class GroupExpense extends BaseModel{
     @ManyToOne
     private Group group;
 
-    @ManyToOne
+    @OneToOne
     private Expense expense;
 }

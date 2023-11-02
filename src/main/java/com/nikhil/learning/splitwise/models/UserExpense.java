@@ -1,8 +1,9 @@
 package com.nikhil.learning.splitwise.models;
 
-import com.nikhil.learning.splitwise.enums.expenseType;
+import com.nikhil.learning.splitwise.enums.ExpenseType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 
@@ -12,8 +13,11 @@ public class UserExpense extends BaseModel{
 
     @ManyToOne
     private User user;
+    @ManyToOne
+    @JoinColumn(name = "expense_id")
+    private Expense expense;
     private Double amount;
 
     @Enumerated
-    private expenseType expenseType;
+    private ExpenseType expenseType;
 }

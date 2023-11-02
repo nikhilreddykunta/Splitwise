@@ -11,6 +11,7 @@ import java.util.List;
 
 @Getter
 @Entity
+@Table(name = "user_groups")
 public class Group extends BaseModel{
     private String name;
 

@@ -1,6 +1,6 @@
 package com.nikhil.learning.splitwise.enums;
 
-public enum expenseType {
+public enum ExpenseType {
     PAID,
     OWED
 }

@@ -1,12 +1,11 @@
 package com.nikhil.learning.splitwise.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import com.nikhil.learning.splitwise.enums.ExpenseStatus;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -18,9 +17,15 @@ public class Expense extends BaseModel{
     @ManyToOne
     private User createdby;
 
-    @OneToMany
+    @ManyToMany
+    private List<User> users = new ArrayList<>();
+
+    @OneToMany(mappedBy = "expense")
     private List<UserExpense> paidBy = new ArrayList<>();
 
-    @OneToMany
+    @OneToMany(mappedBy = "expense")
     private List<UserExpense> owedBy = new ArrayList<>();
+
+    @Enumerated
+    private ExpenseStatus expenseStatus;
 }
